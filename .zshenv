@@ -1,2 +1,5 @@
 export ZDOTDIR="$HOME/.config/zsh"
-source "$ZDOTDIR/zshenv.sh"
+
+for file in "$ZDOTDIR"/zshenv/*; do
+	source "$file"
+done
