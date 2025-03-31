@@ -2,10 +2,11 @@ for file in "$ZDOTDIR"/zshrc/*; do
 	source "$file"
 done
 
+HISTFILE="$ZDOTDIR/.histfile"
+HISTSIZE=1000000000
+SAVEHIST=$HISTSIZE
+
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
 unsetopt autocd
 bindkey -v
 # End of lines configured by zsh-newuser-install
