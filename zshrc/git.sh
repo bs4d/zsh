@@ -9,6 +9,13 @@ alias gd='git diff'
 alias gp='git pull'
 alias gpp='git push'
 alias gppf='git push --force'
+function gppa {
+  for remote in $(git remote); do
+    echo "pushing to $remote..."
+    git push "$remote" $(git branch --show-current) $@
+  done
+}
+alias gppfa='gppa --force'
 alias gane='git commit --all --amend --no-edit'
 function gpr {
   if [ "$#" -eq 0 ]; then

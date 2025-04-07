@@ -7,6 +7,11 @@ alias ll='ls -lh'
 alias la='ls -a'
 alias lla='ll -a'
 
+# color diff output
+function diff {
+  command diff --color=always "$@"
+}
+
 # package management
 case "$OS" in
   'arch')
