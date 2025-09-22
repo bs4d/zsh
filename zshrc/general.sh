@@ -7,6 +7,20 @@ alias ll='ls -lh'
 alias la='ls -a'
 alias lla='ll -a'
 
+# file search and edition
+function ff {
+  find $@ -type f
+}
+function ed {
+  find $@ -type f ! -path '*/.*/*' ! -name '.*' -exec "$EDITOR" {} +
+}
+function fd {
+  find $@ -type d
+}
+function fde {
+  find $@ -type d -empty
+}
+
 # color diff output
 function diff {
   command diff --color=always "$@"
@@ -62,7 +76,7 @@ function wsf {
 }
 function cws {
   ln -sfn "$(pwd)" ~/.ws
-  echo "$@" > ~/.wsf
+  echo "$(ff $@)" > ~/.wsf
   [ $# -gt 0 ] && wsf
 }
 
